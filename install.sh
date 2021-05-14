@@ -20,13 +20,7 @@ sudo apt-get upgrade -y && \
 cat tool.list | xargs sudo apt-get install -y 
 
 #installing go tool
-go get -u \
-    github.com/tomnomnom/assetfinder \
-    github.com/tomnomnom/httprobe \
-    github.com/tomnomnom/waybackurls \
-    github.com/tomnomnom/anew \
-    github.com/tomnomnom/fff \
-    github.com/tomnomnom/gf
+cat script.list | xargs go get -u 
 
 #creating symlink for the above tools
 sudo ln -s ~/go/bin/* /usr/local/bin/
