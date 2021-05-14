@@ -10,14 +10,14 @@ echo "Installing required tools"
 # #Installing Go language 
 echo "Installing GO Language"
 wget -c https://golang.org/dl/go1.16.4.linux-amd64.tar.gz -P /tmp/
-echo "msi" | sudo -S rm -rf /usr/local/go && echo "msi" | sudo -S tar -C /usr/local -xzf /tmp/go1.16.4.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go && echo "msi" | sudo -S tar -C /usr/local -xzf /tmp/go1.16.4.linux-amd64.tar.gz
 
 echo "export PATH=$PATH:/usr/local/go/bin" >> $HOME/.bashrc
 source ~/.bashrc
 
-echo "msi" | sudo -S apt-get update && \
-echo "msi" | sudo -S apt-get upgrade -y && \
-cat tool.list | xargs sudo -S apt-get install -y 
+sudo apt-get update && \
+sudo apt-get upgrade -y && \
+cat tool.list | xargs sudo apt-get install -y 
 
 #Installing metasploit
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
@@ -34,4 +34,4 @@ go get -u \
     github.com/tomnomnom/gf
 
 #creating symlink for the above tools
-echo "msi" | sudo -S ln -s ~/go/bin/* /usr/local/bin/
+sudo ln -s ~/go/bin/* /usr/local/bin/
