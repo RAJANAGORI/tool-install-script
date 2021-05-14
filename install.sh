@@ -10,19 +10,14 @@ echo "Installing required tools"
 # #Installing Go language 
 echo "Installing GO Language"
 wget -c https://golang.org/dl/go1.16.4.linux-amd64.tar.gz -P /tmp/
-sudo rm -rf /usr/local/go && sudo -S tar -C /usr/local -xzf /tmp/go1.16.4.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf /tmp/go1.16.4.linux-amd64.tar.gz
 
-echo "export PATH=$PATH:/usr/local/go/bin" >> $HOME/.bashrc
-source ~/.bashrc
+echo "export PATH=$PATH:/usr/local/go/bin" >> $HOME/.profile
+source ~/.profile
 
 sudo apt-get update && \
 sudo apt-get upgrade -y && \
 cat tool.list | xargs sudo apt-get install -y 
-
-#Installing metasploit
-curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
-chmod 755 msfinstall && \
-./msfinstall
 
 #installing go tool
 go get -u \
