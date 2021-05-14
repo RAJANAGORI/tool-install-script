@@ -10,7 +10,7 @@ echo "Installing required tools"
 # #Installing Go language 
 echo "Installing GO Language"
 wget -c https://golang.org/dl/go1.16.4.linux-amd64.tar.gz -P /tmp/
-sudo rm -rf /usr/local/go && echo "msi" | sudo -S tar -C /usr/local -xzf /tmp/go1.16.4.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go && sudo -S tar -C /usr/local -xzf /tmp/go1.16.4.linux-amd64.tar.gz
 
 echo "export PATH=$PATH:/usr/local/go/bin" >> $HOME/.bashrc
 source ~/.bashrc
