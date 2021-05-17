@@ -22,5 +22,9 @@ cat tool.list | xargs sudo apt-get install -y
 #installing go tool
 cat script.list | xargs go get -u 
 
+#Installing Nuclei
+GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
+nuclei -update-templates
+
 #creating symlink for the above tools
 sudo ln -s ~/go/bin/* /usr/local/bin/
