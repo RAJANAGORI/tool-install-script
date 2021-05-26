@@ -27,11 +27,13 @@ GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
 nuclei -update-templates
 
 #installing pip2 module and frida-tool
-wget -L https://bootstrap.pypa.io/pip/2.7/get-pip.py -O get-pip.py -P /tmp/
-python /tmp/get-pip.py
+cd /tmp/
+wget -L https://bootstrap.pypa.io/pip/2.7/get-pip.py -O get-pip.py
+python get-pip.py
 python -m pip install --upgrade pip setuptools wheel
-sudo python -m pip install frida-tools
+python -m pip install frida-tools
 sudo pip3 install frida-tools
+export PATH="/home/kali/.local/bin:$PATH"
 
 #creating symlink for the above tools
 sudo ln -s ~/go/bin/* /usr/local/bin/
