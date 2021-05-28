@@ -9,10 +9,13 @@ echo "Installing required tools"
 
 # #Installing Go language 
 echo "Installing GO Language"
+mkdir -p ~/.go
 wget -c https://golang.org/dl/go1.16.4.linux-amd64.tar.gz -P /tmp/
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf /tmp/go1.16.4.linux-amd64.tar.gz
 
-echo "export PATH=$PATH:/usr/local/go/bin" >> $HOME/.profile
+export GOPATH='~/.go'
+
+echo "export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin" >> $HOME/.profile
 source ~/.profile
 
 sudo apt-get update && \
@@ -20,6 +23,7 @@ sudo apt-get upgrade -y && \
 cat tool.list | xargs sudo apt-get install -y 
 
 #installing go tool
+
 cat script.list | xargs go get -u 
 
 #Installing Nuclei
