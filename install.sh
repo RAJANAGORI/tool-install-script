@@ -15,8 +15,7 @@ sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf /tmp/go1.16.4.linux-amd
 
 export GOPATH='~/.go'
 
-echo "export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin" >> $HOME/.profile
-source ~/.profile
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 sudo apt-get update && \
 sudo apt-get upgrade -y && \
