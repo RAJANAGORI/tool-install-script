@@ -31,6 +31,7 @@ wget -L https://bootstrap.pypa.io/pip/2.7/get-pip.py -O get-pip.py
 python /tmp/get-pip.py
 python -m pip install --upgrade pip setuptools wheel
 python -m pip install frida-tools
+sudo apt-get install python3-pip
 sudo pip3 install frida-tools
 export PATH="/home/kali/.local/bin:$PATH"
 
